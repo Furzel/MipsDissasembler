@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public final class InstructionReader {
 	
-	private static final String FILE_NAME = "data/paul_hex.txt";
+	private static final String FILE_NAME = "../data/paul_hex.txt";
 	
 	public static final ArrayList<String> readFile() {
 		ArrayList<String> stringList = new ArrayList<String>();
@@ -21,7 +21,7 @@ public final class InstructionReader {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String binaryString = "";
-				System.out.println("Line read = " + line);
+				//System.out.println("Line read = " + line);
 				if (line.contains("0x")) {
 					BigInteger value = new BigInteger(line.replace("0x", ""), 16);
 					binaryString = value.toString(2);

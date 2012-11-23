@@ -10,6 +10,7 @@ import Immediate.Ins_rtrsimm;
 import Jump.Ins_jump;
 import Register.Ins_rd;
 import Register.Ins_rdrs;
+import Register.Ins_rdrsrt;
 import Register.Ins_rdrtimm;
 import Register.Ins_rdrtrs;
 import Register.Ins_rs;
@@ -33,7 +34,7 @@ public class InstructionFactory {
 		Instruction ins = null; 
 		_opCode = Integer.valueOf(binaryString.substring(0, 6), 2);
 		_funcCode = Integer.valueOf(binaryString.substring(26, 32), 2);
-		_rtCode = Integer.valueOf(binaryString.substring(11, 16));
+		_rtCode = Integer.valueOf(binaryString.substring(11, 16), 2);
 		/*
 		 * Should we look at the function field ?
 		 */
@@ -59,6 +60,8 @@ public class InstructionFactory {
 			
 			else if (containsFuncCode(Ins_rd.FUNCTION_CODE)) {
 				ins = new Ins_rd(binaryString);
+			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE0)){
+				ins = new Ins_rdrsrt(binaryString);
 			}
 		}
 		else if (_opCode == OP_FUNC1) {
@@ -75,6 +78,8 @@ public class InstructionFactory {
 			}
 			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE)) {
 				ins = new Ins_rdrs(binaryString);
+			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE28)){
+				ins = new Ins_rdrsrt(binaryString);
 			}
 		}
 		/*
@@ -122,7 +127,7 @@ public class InstructionFactory {
 	private static boolean containsFuncCode(int[] funcCodeClass) {
 		assert(_opCode == 0 || _opCode == 28);
 		for (int i = 0; i < funcCodeClass.length; i++) {
-			if (_rtCode == funcCodeClass[i]) {
+			if (_funcCode == funcCodeClass[i]) {
 				return true;
 			}
 		}

@@ -15,9 +15,9 @@ nor $a3 $ra $t7
 slt $a3 $ra $t7
 sltu $a3 $ra $t7
 mul $a3 $ra $t7
-sll $a3	$t7 1
+sll $a3 $t7 1
 srl $a3 $t7 1
-sra $a3	$t7 1
+sra $a3 $t7 1
 sllv $a3 $t7 $ra
 srlv $a3 $t7 $ra
 srav $a3 $t7 $ra
