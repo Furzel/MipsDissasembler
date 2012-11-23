@@ -17,7 +17,7 @@ public class Ins_rdrtimm extends RegisterInstruction {
 	@Override
 	public void printMnemonic() {
 		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_CODE, Integer.valueOf(_functionCode, 2));
-		System.out.println(_functionName + " " + _rd + " " + _rd + " " + Integer.valueOf(_shamt, 2));
+		System.out.println(_functionName + " " + _rd + " " + _rt + " " + Integer.valueOf(_shamt, 2));
 	}
 	
 	public String getShamt(){

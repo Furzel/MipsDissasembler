@@ -1,26 +1,26 @@
-mfhi	rd
-mflo	rd
-clz	rd	rs
-clo	rd	rs
-movz	rd	rs	rt
-movn	rd	rs	rt
-add	rd	rs	rt
-addu	rd	rs	rt
-sub	rd	rs	rt
-subu	rd 	rs	rt
-and	rd	rs	rt
-or	rd 	rs	rt
-xor	rd	rs	rt
-nor	rd	rs	rt
-slt	rd	rs	rt
-sltu	rd	rs	rt
-mul	rd	rs	rt
-sll	rd	rt	imm
-srl	rd	rt	imm
-sra	rd	rt	imm
-sllv	rd	rt	rs
-srlv	rd	rt	rs
-srav	rd	rt	rs
-jr	rs
-mthi	rs
-mtlo	rs
+mfhi $ra
+mflo $ra
+clz $ra $ra
+clo $ra $ra
+movz $a3 $ra $t7
+movn $a3 $ra $t7
+add $a3 $ra $t7
+addu $a3 $ra $t7
+sub $a3 $ra $t7
+subu $a3 $ra $t7
+and $a3 $ra $t7
+or $a3 $ra $t7
+xor $a3 $ra $t7
+nor $a3 $ra $t7
+slt $a3 $ra $t7
+sltu $a3 $ra $t7
+mul $a3 $ra $t7
+sll $a3	$t7 1
+srl $a3 $t7 1
+sra $a3	$t7 1
+sllv $a3 $t7 $ra
+srlv $a3 $t7 $ra
+srav $a3 $t7 $ra
+jr $ra
+mthi $ra
+mtlo $ra
