@@ -30,6 +30,14 @@ public final class InstructionReader {
 					BigInteger value = new BigInteger(line);
 					binaryString = value.toString(2);
 				}
+				// Add 0 to the begining if the string is less than 32 bit long
+				if (binaryString.length() < 32) {
+					int nbMissingZero = 32 - binaryString.length();
+					for (int i = 0; i < nbMissingZero; i++) {
+						binaryString = "0" + binaryString;
+					}
+				}
+				assert(binaryString.length() == 32);
 				stringList.add(binaryString);
 			}
 			reader.close();

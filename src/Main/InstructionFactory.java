@@ -17,8 +17,9 @@ public class InstructionFactory {
 	
 	public static final Instruction createInstruction(String binaryString) {
 		Instruction ins = null; 
-		_opCode = Integer.valueOf(binaryString.substring(0, 7), 2);
-		_funcCode = Integer.valueOf(binaryString.substring(25, 32));
+		String temp = binaryString.substring(0, 6);
+		_opCode = Integer.valueOf(temp, 2);
+		_funcCode = Integer.valueOf(binaryString.substring(25, 32), 2);
 		/*
 		 * Should we look at the function field ?
 		 */

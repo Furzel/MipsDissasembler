@@ -7,13 +7,15 @@ public class Ins_rsrtlbl extends ImmediateInstruction {
 	
 	public Ins_rsrtlbl(String binaryString) {
 		super(binaryString);
-		// TODO Auto-generated constructor stub
+		_rs = binaryToReg(getRs());
+		_rt = binaryToReg(getRt());
+		_imm = "0x" + Integer.toHexString(Integer.valueOf(getImm(), 2));
 	}
 
 	@Override
 	public void printMnemonic() {
-		// TODO Auto-generated method stub
-
+		_functionName = getNameFromCode(FUNCTION_NAME, OP_CODE, Integer.valueOf(_opCode, 2));
+		System.out.println(_functionName + " " + _rs + " " + _rt + " " + _imm);
 	}
 
 }

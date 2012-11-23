@@ -1,4 +1,6 @@
 package Jump;
+import java.math.BigInteger;
+
 import Main.Instruction;
 
 
@@ -13,14 +15,16 @@ public abstract class JumpInstruction extends Instruction {
 
 	@Override
 	public void printDecomposedDecimal() {
-		// TODO Auto-generated method stub
-		
+		int opCode = Integer.valueOf(_instructionString.substring(0, 7), 2);
+		BigInteger target = BigInteger.valueOf(Long.valueOf(_instructionString.substring(7, 32), 2));
+		System.out.println(opCode + " " + target);
 	}
 
 	@Override
 	public void printDecomposedHexa() {
-		// TODO Auto-generated method stub
-		
+		String opCode = "0x" + Integer.toHexString(Integer.valueOf(_instructionString.substring(0, 7), 2));
+		String target = "0x" + BigInteger.valueOf(Long.valueOf(_instructionString.substring(7, 32), 2)).toString(16);
+		System.out.println(opCode + " " + target);
 	}
 
 	

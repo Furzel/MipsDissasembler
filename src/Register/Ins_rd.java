@@ -7,13 +7,13 @@ public class Ins_rd extends RegisterInstruction{
 	
 	public Ins_rd(String binaryString) {
 		super(binaryString);
-		// TODO Auto-generated constructor stub
+		_rd = binaryToReg(getRd());
 	}
 
 	@Override
-	public void printMnemonic() {
-		// TODO Auto-generated method stub
-		
+	public void printMnemonic() { 
+		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_CODE, Integer.valueOf(_functionCode, 2));
+		System.out.println(_functionName + " " + _rd);
 	}
 
 }
