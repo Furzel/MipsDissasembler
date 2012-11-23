@@ -27,5 +27,7 @@ public abstract class JumpInstruction extends Instruction {
 		System.out.println(opCode + " " + target);
 	}
 
-	
+	protected String getTarget() {
+		return _instructionString.substring(6, 32);
+	}
 }
