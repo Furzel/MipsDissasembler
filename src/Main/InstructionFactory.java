@@ -47,7 +47,7 @@ public class InstructionFactory {
 			else if(containsFuncCode(Ins_rs.FUNCTION_CODE)){
 				ins = new Ins_rs(binaryString);
 			}
-			else if(containsFuncCode(Ins_rsrt.FUNCTION_CODE)){
+			else if(containsFuncCode(Ins_rsrt.FUNCTION_CODE_OPCODE0)){
 				ins = new Ins_rsrt(binaryString);
 			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE0)){
 				ins = new Ins_rdrsrt(binaryString);
@@ -74,7 +74,7 @@ public class InstructionFactory {
 			}
 		}
 		else if (_opCode == OP_FUNC28) {
-			if (containsFuncCode(Ins_rsrt.FUNCTION_CODE)) {
+			if (containsFuncCode(Ins_rsrt.FUNCTION_CODE_OPCODE28)) {
 				ins = new Ins_rsrt(binaryString);
 			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE28)){
 				ins  = new Ins_rdrsrt(binaryString);
