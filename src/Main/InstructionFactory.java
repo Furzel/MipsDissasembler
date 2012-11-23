@@ -1,9 +1,19 @@
 package Main;
 
+import Immediate.Ins_rsimm;
+import Immediate.Ins_rslbl;
+import Immediate.Ins_rsrtimm;
 import Immediate.Ins_rsrtlbl;
+import Immediate.Ins_rtaddr;
+import Immediate.Ins_rtimm;
+import Immediate.Ins_rtrsimm;
+import Jump.Ins_jump;
 import Register.Ins_rd;
+import Register.Ins_rdrs;
 import Register.Ins_rdrtimm;
+import Register.Ins_rdrtrs;
 import Register.Ins_rs;
+import Register.Ins_rsrd;
 import Register.Ins_rsrt;
 
 
@@ -29,21 +39,42 @@ public class InstructionFactory {
 		if (_opCode == OP_FUNC0) {
 			if (containsFuncCode(Ins_rd.FUNCTION_CODE)) {
 				ins = new Ins_rd(binaryString);
-			}else if(containsFuncCode(Ins_rdrtimm.FUNCTION_CODE)){
+			}
+			else if(containsFuncCode(Ins_rdrtimm.FUNCTION_CODE)){
 				ins = new Ins_rdrtimm(binaryString);
-			}else if(containsFuncCode(Ins_rs.FUNCTION_CODE)){
+			}
+			else if(containsFuncCode(Ins_rs.FUNCTION_CODE)){
 				ins = new Ins_rs(binaryString);
-			}else if(containsFuncCode(Ins_rsrt.FUNCTION_CODE)){
+			}
+			else if(containsFuncCode(Ins_rsrt.FUNCTION_CODE)){
 				ins = new Ins_rsrt(binaryString);
+			}
+			else if (containsFuncCode(Ins_rsrd.FUNCTION_CODE)) {
+				ins = new Ins_rsrd(binaryString);
+			}
+			else if (containsFuncCode(Ins_rdrtrs.FUNCTION_CODE)) {
+				ins = new Ins_rdrtrs(binaryString);
+			}
+			
+			else if (containsFuncCode(Ins_rd.FUNCTION_CODE)) {
+				ins = new Ins_rd(binaryString);
 			}
 		}
 		else if (_opCode == OP_FUNC1) {
-
+			if (containsFuncCode(Ins_rslbl.RT_CODE)) {
+				ins = new Ins_rslbl(binaryString);
+			}
+			else if (containsFuncCode(Ins_rsimm.RT_CODE)) {
+				ins = new Ins_rsimm(binaryString);
+			}
 		}
 		else if (_opCode == OP_FUNC28) {
 			if (containsFuncCode(Ins_rsrt.FUNCTION_CODE)) {
 				ins = new Ins_rsrt(binaryString);
-			}			
+			}
+			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE)) {
+				ins = new Ins_rdrs(binaryString);
+			}
 		}
 		/*
 		 * op code is enough to tell which function we want
@@ -51,6 +82,25 @@ public class InstructionFactory {
 		else if (containsOpCode(Ins_rsrtlbl.OP_CODE)) {
 			ins = new Ins_rsrtlbl(binaryString);
 		}
+		else if (containsOpCode(Ins_jump.OP_CODE)) {
+			ins = new Ins_jump(binaryString);
+		}
+		else if (containsOpCode(Ins_rtrsimm.OP_CODE)) {
+			ins = new Ins_rtrsimm(binaryString);
+		}
+		else if (containsOpCode(Ins_rtimm.OP_CODE)) {
+			ins = new Ins_rtimm(binaryString);
+		}
+		else if (containsOpCode(Ins_rtaddr.OP_CODE)) {
+			ins = new Ins_rtaddr(binaryString);
+		}
+		else if (containsOpCode(Ins_rsrtimm.OP_CODE)) {
+			ins = new Ins_rsrtimm(binaryString);
+		}
+		else if (containsOpCode(Ins_rslbl.OP_CODE)) {
+			ins = new Ins_rslbl(binaryString);
+		}
+		
 		else {
 			// Unrecognized opcode
 			assert(false);
