@@ -1,0 +1,26 @@
+mfhi	rd
+mflo	rd
+clz	rd	rs
+clo	rd	rs
+movz	rd	rs	rt
+movn	rd	rs	rt
+add	rd	rs	rt
+addu	rd	rs	rt
+sub	rd	rs	rt
+subu	rd 	rs	rt
+and	rd	rs	rt
+or	rd 	rs	rt
+xor	rd	rs	rt
+nor	rd	rs	rt
+slt	rd	rs	rt
+sltu	rd	rs	rt
+mul	rd	rs	rt
+sll	rd	rt	imm
+srl	rd	rt	imm
+sra	rd	rt	imm
+sllv	rd	rt	rs
+srlv	rd	rt	rs
+srav	rd	rt	rs
+jr	rs
+mthi	rs
+mtlo	rs
