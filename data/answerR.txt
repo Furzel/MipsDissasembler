@@ -7,3 +7,18 @@ lhu $v0 1024($v1)
 lwr $a0 2048($a1)
 sb $a2 1024($a3)
 sh $s0 512($s1)
+swl $s2 256($s3)
+sw $s4 128($s5)
+swr $s6 64($s7)
+ll $t8 32($t9)
+sc $k0 16($k1)
+lui $gp 8
+addi $sp $fp 4
+slti $ra $t0 2
+sltiu $t1 $t0 1
+andi $t1 $t0 42
+ori $t1 $t0 42
+xori $t1 $t0 42
+j 0x4242
+jal 0xabcd
+nop
