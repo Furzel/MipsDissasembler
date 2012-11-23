@@ -13,7 +13,7 @@ public abstract class RegisterInstruction extends Instruction {
 	public RegisterInstruction(String binaryString) {
 		super(binaryString);
 		_format = "R";
-		_functionCode = binaryString.substring(25, 32);
+		_functionCode = binaryString.substring(26, 32);
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package Main;
 
 import Immediate.Ins_rsrtlbl;
 import Register.Ins_rd;
+import Register.Ins_rdrtimm;
 
 
 
@@ -19,13 +20,15 @@ public class InstructionFactory {
 		Instruction ins = null; 
 		String temp = binaryString.substring(0, 6);
 		_opCode = Integer.valueOf(temp, 2);
-		_funcCode = Integer.valueOf(binaryString.substring(25, 32), 2);
+		_funcCode = Integer.valueOf(binaryString.substring(26, 32), 2);
 		/*
 		 * Should we look at the function field ?
 		 */
 		if (_opCode == OP_FUNC0) {
 			if (containsFuncCode(Ins_rd.FUNCTION_CODE)) {
 				ins = new Ins_rd(binaryString);
+			}else if(containsFuncCode(Ins_rdrtimm.FUNCTION_CODE)){
+				ins = new Ins_rdrtimm(binaryString);
 			}
 		}
 		else if (_opCode == OP_FUNC1) {
