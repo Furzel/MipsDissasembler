@@ -10,6 +10,7 @@ import Immediate.Ins_rtrsimm;
 import Jump.Ins_jump;
 import Register.Ins_rd;
 import Register.Ins_rdrs;
+import Register.Ins_rdrsrt;
 import Register.Ins_rdrtimm;
 import Register.Ins_rdrtrs;
 import Register.Ins_rs;
@@ -48,6 +49,10 @@ public class InstructionFactory {
 			}
 			else if(containsFuncCode(Ins_rsrt.FUNCTION_CODE)){
 				ins = new Ins_rsrt(binaryString);
+			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE0)){
+				ins = new Ins_rdrsrt(binaryString);
+			}else if(containsFuncCode(Ins_rdrtrs.FUNCTION_CODE)){
+				ins = new Ins_rdrtrs(binaryString);
 			}
 			else if (containsFuncCode(Ins_rsrd.FUNCTION_CODE)) {
 				ins = new Ins_rsrd(binaryString);
@@ -71,8 +76,9 @@ public class InstructionFactory {
 		else if (_opCode == OP_FUNC28) {
 			if (containsFuncCode(Ins_rsrt.FUNCTION_CODE)) {
 				ins = new Ins_rsrt(binaryString);
-			}
-			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE)) {
+			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE28)){
+				ins  = new Ins_rdrsrt(binaryString);
+			}else if(containsFuncCode(Ins_rdrs.FUNCTION_CODE)){
 				ins = new Ins_rdrs(binaryString);
 			}
 		}

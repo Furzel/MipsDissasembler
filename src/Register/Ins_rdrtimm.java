@@ -21,9 +21,7 @@ public class Ins_rdrtimm extends RegisterInstruction {
 	}
 	
 	public String getShamt(){
-		String t = _instructionString.substring(21, 26);
-		return t;
-		
+		return _instructionString.substring(21, 26);
 	}
 
 }
