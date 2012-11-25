@@ -18,8 +18,6 @@ import Register.Ins_rsrd;
 import Register.Ins_rsrt;
 
 
-
-
 public class InstructionFactory {
 
 	private final static int OP_FUNC0 = 0;
@@ -36,9 +34,15 @@ public class InstructionFactory {
 		_funcCode = Integer.valueOf(binaryString.substring(26, 32), 2);
 		_rtCode = Integer.valueOf(binaryString.substring(11, 16), 2);
 		/*
+		 * Check for special functions
+		 */
+		if (isSpecialFunction(binaryString)) {
+			ins = new SpecialInstruction(binaryString);
+		}
+		/*
 		 * Should we look at the function field ?
 		 */
-		if (_opCode == OP_FUNC0) {
+		else if (_opCode == OP_FUNC0) {
 			if (containsFuncCode(Ins_rd.FUNCTION_CODE)) {
 				ins = new Ins_rd(binaryString);
 			}
@@ -140,6 +144,13 @@ public class InstructionFactory {
 			if (_rtCode == rtCodeClass[i]) {
 				return true;
 			}
+		}
+		return false;
+	}
+	
+	private static boolean isSpecialFunction(String binaryString) {
+		if (binaryString.equals(SpecialInstruction.OP_NOP)) {
+			return true;
 		}
 		return false;
 	}

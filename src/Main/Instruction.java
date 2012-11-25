@@ -7,7 +7,7 @@ public abstract class Instruction {
 	
 	protected static final String[] REGISTER_NAME= {	"$zero",
 														"$at",
-														"$vo",
+														"$v0",
 														"$v1",
 														"$a0",
 														"$a1",

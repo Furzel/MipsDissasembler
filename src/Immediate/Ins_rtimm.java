@@ -4,7 +4,7 @@ public class Ins_rtimm extends ImmediateInstruction {
 
 	
 	public static final int[] OP_CODE = { 15 };
-	public static final String[] FUNCTION_NAME = { "liu" };
+	public static final String[] FUNCTION_NAME = { "lui" };
 	
 	public Ins_rtimm(String binaryString) {
 		super(binaryString);
