@@ -24,4 +24,23 @@ public class Ins_rsrt extends RegisterInstruction {
 		System.out.println(_functionName + " " + _rs  + " " + _rt);
 	}
 
+	@Override
+	public void printDecomposedDecimal() {
+		int opCode = Integer.valueOf(getOpCode(), 2);
+		int rs = Integer.valueOf(getRs(), 2);
+		int rt = Integer.valueOf(getRt(), 2);
+		int part5 = Integer.valueOf(_instructionString.substring(16, 26), 2);
+		int funcCode = Integer.valueOf(getFuncCode(), 2);
+		System.out.println(opCode + " " + rs + " " + rt + " " + part5 + " " + funcCode);
+	}
+
+	@Override
+	public void printDecomposedHexa() {
+		String opCode = "0x" + Integer.toHexString(Integer.valueOf(getOpCode(), 2));
+		String rs = "0x" + Integer.toHexString(Integer.valueOf(getRs(), 2));
+		String rt = "0x" + Integer.toHexString(Integer.valueOf(getRt(), 2));
+		String part5 = "0x" + Integer.toHexString(Integer.valueOf(_instructionString.substring(16, 26), 2));
+		String funcCode = "0x" + Integer.toHexString(Integer.valueOf(getFuncCode(), 2));
+		System.out.println(opCode + " " + rs + " " + rt + " " + part5 + " " + funcCode);
+	}
 }

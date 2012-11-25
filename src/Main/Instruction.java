@@ -56,7 +56,6 @@ public abstract class Instruction {
 		System.out.println("Format : " + _format);
 	}
 	
-	
 	protected String binaryToReg(String binaryString) {
 		int regNumber = Integer.valueOf(binaryString, 2);
 		assert(regNumber >= 0 && regNumber <= 31);

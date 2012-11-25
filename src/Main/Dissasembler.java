@@ -13,10 +13,10 @@ public class Dissasembler {
 		ArrayList<String> stringList = InstructionReader.readFile();
 		for (String s : stringList) {
 			Instruction ins = InstructionFactory.createInstruction(s);
-			//ins.printFormat();
+			ins.printFormat();
 			ins.printMnemonic();
-			//ins.printDecomposedDecimal();
-			//ins.printDecomposedHexa();
+			ins.printDecomposedDecimal();
+			ins.printDecomposedHexa();
 		}
 	}
 
