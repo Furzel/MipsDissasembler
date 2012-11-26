@@ -2,8 +2,7 @@ package Coprocessor;
 
 public class Ins_rtrd_rdrt extends CoprocessorInstruction {
 
-	public static final int[] FUNCTION_CODE_COPROCESSOR = { 0 };
-	public static final int[] FUNCTION_FORMAT = { 0, 4 };
+	public static final int[] FUNCTION_FORMATCODE = { 0, 4 };
 	public static final String[] FUNCTION_NAME= { "mfc0", "mtc0"};
 
 	public Ins_rtrd_rdrt(String binaryString){
@@ -15,7 +14,7 @@ public class Ins_rtrd_rdrt extends CoprocessorInstruction {
 	@Override
 	public void printMnemonic() {
 		String firstRegister, secondRegister;
-		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_FORMAT, Integer.valueOf(_formatCode, 2));
+		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_FORMATCODE, Integer.valueOf(_formatCode, 2));
 		if(Integer.valueOf(_formatCode, 2).equals(0)){
 			firstRegister = _rt;
 			secondRegister = _rdfs;

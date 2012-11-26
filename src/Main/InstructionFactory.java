@@ -1,5 +1,6 @@
 package Main;
 
+import Coprocessor.Ins_cclbl;
 import Coprocessor.Ins_rtfs;
 import Coprocessor.Ins_rtrd_rdrt;
 import Immediate.Ins_rsimm;
@@ -88,7 +89,8 @@ public class InstructionFactory {
 			}
 		}
 		else if(_opCode == OP_FUNC16){
-			if(containsFuncCode(Ins_rtrd_rdrt.FUNCTION_CODE_COPROCESSOR)){
+			int formatCode = Integer.valueOf(binaryString.substring(6, 11), 2);
+			if(containsFormatCode(Ins_rtrd_rdrt.FUNCTION_FORMATCODE, formatCode)){
 				ins = new Ins_rtrd_rdrt(binaryString);
 			}
 			else {
@@ -96,8 +98,11 @@ public class InstructionFactory {
 			}
 		}
 		else if(_opCode == OP_FUNC17){
-			if(containsFuncCode(Ins_rtfs.FUNCTION_CODE_COPROCESSOR)){
+			int formatCode = Integer.valueOf(binaryString.substring(6, 11), 2);
+			if(containsFormatCode(Ins_rtfs.FUNCTION_FORMATCODE, formatCode)){
 				ins = new Ins_rtfs(binaryString);
+			}else if(containsFormatCode(Ins_cclbl.FORMAT_CODE, formatCode)){
+				ins = new Ins_cclbl(binaryString);
 			}
 			else {
 				ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
@@ -162,6 +167,16 @@ public class InstructionFactory {
 		assert(_opCode == 0 || _opCode == 28 || _opCode == 16 || _opCode == 17);
 		for (int i = 0; i < funcCodeClass.length; i++) {
 			if (_funcCode == funcCodeClass[i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private static boolean containsFormatCode(int[] formatCodeClass, int formatCode){
+		assert(_opCode == 16 || _opCode == 17);
+		for (int i = 0; i < formatCodeClass.length; i++) {
+			if (formatCode == formatCodeClass[i]) {
 				return true;
 			}
 		}
