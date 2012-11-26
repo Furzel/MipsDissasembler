@@ -1,6 +1,7 @@
 package Main;
 
-import Coprocessor.Ins_mv;
+import Coprocessor.Ins_rtfs;
+import Coprocessor.Ins_rtrd_rdrt;
 import Immediate.Ins_rsimm;
 import Immediate.Ins_rslbl;
 import Immediate.Ins_rsrtimm;
@@ -87,16 +88,16 @@ public class InstructionFactory {
 			}
 		}
 		else if(_opCode == OP_FUNC16){
-			if(containsFuncCode(Ins_mv.FUNCTION_CODE_COPROCESSOR)){
-				ins = new Ins_mv(binaryString);
+			if(containsFuncCode(Ins_rtrd_rdrt.FUNCTION_CODE_COPROCESSOR)){
+				ins = new Ins_rtrd_rdrt(binaryString);
 			}
 			else {
 				ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
 			}
 		}
 		else if(_opCode == OP_FUNC17){
-			if(containsFuncCode(Ins_mv.FUNCTION_CODE_COPROCESSOR)){
-				ins = new Ins_mv(binaryString);
+			if(containsFuncCode(Ins_rtfs.FUNCTION_CODE_COPROCESSOR)){
+				ins = new Ins_rtfs(binaryString);
 			}
 			else {
 				ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
