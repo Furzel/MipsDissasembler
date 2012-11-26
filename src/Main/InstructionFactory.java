@@ -63,13 +63,17 @@ public class InstructionFactory {
 			}
 			else if (containsFuncCode(Ins_rdrtrs.FUNCTION_CODE)) {
 				ins = new Ins_rdrtrs(binaryString);
-			}
-			
+			}			
 			else if (containsFuncCode(Ins_rd.FUNCTION_CODE)) {
 				ins = new Ins_rd(binaryString);
-			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE0)){
+			}
+			else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE0)){
 				ins = new Ins_rdrsrt(binaryString);
 			}
+			else {
+				ins = new IncorrectInstruction(binaryString, _funcCode + " is not a valid function code for opcode 0");
+			}
+			
 		}
 		else if (_opCode == OP_FUNC1) {
 			if (containsRtCode(Ins_rslbl.RT_CODE)) {
@@ -78,15 +82,24 @@ public class InstructionFactory {
 			else if (containsRtCode(Ins_rsimm.RT_CODE)) {
 				ins = new Ins_rsimm(binaryString);
 			}
+			else {
+				ins = new IncorrectInstruction(binaryString, _rtCode + " is not a valid value for the rt field for opcode 1");
+			}
 		}
 		else if(_opCode == OP_FUNC16){
 			if(containsFuncCode(Ins_mv.FUNCTION_CODE_COPROCESSOR)){
 				ins = new Ins_mv(binaryString);
 			}
+			else {
+				ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
+			}
 		}
 		else if(_opCode == OP_FUNC17){
 			if(containsFuncCode(Ins_mv.FUNCTION_CODE_COPROCESSOR)){
 				ins = new Ins_mv(binaryString);
+			}
+			else {
+				ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
 			}
 		}
 		else if (_opCode == OP_FUNC28) {
@@ -95,8 +108,12 @@ public class InstructionFactory {
 			}
 			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE)) {
 				ins = new Ins_rdrs(binaryString);
-			}else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE28)){
+			}
+			else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE28)){
 				ins = new Ins_rdrsrt(binaryString);
+			}
+			else {
+				ins = new IncorrectInstruction(binaryString, _funcCode + " is not a valid function code for opcode 28");
 			}
 		}
 		/*
@@ -122,12 +139,11 @@ public class InstructionFactory {
 		}
 		else if (containsOpCode(Ins_rslbl.OP_CODE)) {
 			ins = new Ins_rslbl(binaryString);
-		}
-		
+		}		
 		else {
-			// Unrecognized opcode
-			assert(false);
+			ins = new IncorrectInstruction(binaryString, "Unrecognized instruction ( opcode = " + _opCode + " )");
 		}
+		assert(ins != null);
 		return ins;
 	}
 
