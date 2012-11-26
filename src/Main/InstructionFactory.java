@@ -1,5 +1,6 @@
 package Main;
 
+import Coprocessor.Ins_mv;
 import Immediate.Ins_rsimm;
 import Immediate.Ins_rslbl;
 import Immediate.Ins_rsrtimm;
@@ -22,6 +23,8 @@ public class InstructionFactory {
 
 	private final static int OP_FUNC0 = 0;
 	private final static int OP_FUNC1 = 1;
+	private final static int OP_FUNC16 = 16;
+	private final static int OP_FUNC17 = 17;
 	private final static int OP_FUNC28 = 28;
 
 	private static int _opCode;
@@ -74,6 +77,16 @@ public class InstructionFactory {
 			}
 			else if (containsRtCode(Ins_rsimm.RT_CODE)) {
 				ins = new Ins_rsimm(binaryString);
+			}
+		}
+		else if(_opCode == OP_FUNC16){
+			if(containsFuncCode(Ins_mv.FUNCTION_CODE_COPROCESSOR)){
+				ins = new Ins_mv(binaryString);
+			}
+		}
+		else if(_opCode == OP_FUNC17){
+			if(containsFuncCode(Ins_mv.FUNCTION_CODE_COPROCESSOR)){
+				ins = new Ins_mv(binaryString);
 			}
 		}
 		else if (_opCode == OP_FUNC28) {
@@ -129,7 +142,7 @@ public class InstructionFactory {
 	}
 
 	private static boolean containsFuncCode(int[] funcCodeClass) {
-		assert(_opCode == 0 || _opCode == 28);
+		assert(_opCode == 0 || _opCode == 28 || _opCode == 16 || _opCode == 17);
 		for (int i = 0; i < funcCodeClass.length; i++) {
 			if (_funcCode == funcCodeClass[i]) {
 				return true;

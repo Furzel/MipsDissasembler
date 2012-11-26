@@ -1,0 +1,4 @@
+mtc0 $t7 $ra
+mtc1 $ra $f15
+mfc1 $ra $f15
+mfc0 $ra $t7

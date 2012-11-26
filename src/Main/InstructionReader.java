@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 public final class InstructionReader {
 	
-	private static final String FILE_NAME = "data/source.txt";
+	private static final String FILE_NAME = "data/coprocessor_hex.txt";
+	//private static final String FILE_NAME = "data/paul_hex.txt";
 	
 	public static final ArrayList<String> readFile() {
 		ArrayList<String> stringList = new ArrayList<String>();
