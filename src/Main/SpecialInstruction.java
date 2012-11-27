@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public class SpecialInstruction extends Instruction {
 
-	public static final String OP_NOP = "00000000000000000000000000000";
+	public static final String OP_NOP = "00000000000000000000000000000000";
 	
 	protected String _mnemonic;
 	

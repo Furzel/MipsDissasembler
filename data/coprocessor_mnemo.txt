@@ -4,3 +4,6 @@ mfc1 $ra $f15
 mfc0 $ra $t7
 bc1t 7 0
 bc1f 7 0
+eret
+syscall
+break 0x3

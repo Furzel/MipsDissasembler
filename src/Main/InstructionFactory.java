@@ -1,6 +1,7 @@
 package Main;
 
 import Coprocessor.Ins_cclbl;
+import Coprocessor.Ins_eret;
 import Coprocessor.Ins_rtfs;
 import Coprocessor.Ins_rtrd_rdrt;
 import Immediate.Ins_rsimm;
@@ -10,6 +11,7 @@ import Immediate.Ins_rsrtlbl;
 import Immediate.Ins_rtaddr;
 import Immediate.Ins_rtimm;
 import Immediate.Ins_rtrsimm;
+import Interruption.Ins_irq;
 import Jump.Ins_jump;
 import Register.Ins_rd;
 import Register.Ins_rdrs;
@@ -71,6 +73,8 @@ public class InstructionFactory {
 			}
 			else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE0)){
 				ins = new Ins_rdrsrt(binaryString);
+			}else if(containsFuncCode(Ins_irq.FUNCTION_CODE)){
+				ins = new Ins_irq(binaryString);
 			}
 			else {
 				ins = new IncorrectInstruction(binaryString, _funcCode + " is not a valid function code for opcode 0");
@@ -89,12 +93,16 @@ public class InstructionFactory {
 			}
 		}
 		else if(_opCode == OP_FUNC16){
-			int formatCode = Integer.valueOf(binaryString.substring(6, 11), 2);
-			if(containsFormatCode(Ins_rtrd_rdrt.FUNCTION_FORMATCODE, formatCode)){
-				ins = new Ins_rtrd_rdrt(binaryString);
-			}
-			else {
-				ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
+			if(containsFuncCode(Ins_eret.FUNCTION_CODE)){
+				ins = new Ins_eret(binaryString);
+			}else{
+				int formatCode = Integer.valueOf(binaryString.substring(6, 11), 2);
+				if(containsFormatCode(Ins_rtrd_rdrt.FUNCTION_FORMATCODE, formatCode)){
+					ins = new Ins_rtrd_rdrt(binaryString);
+				}
+				else {
+					ins = new IncorrectInstruction(binaryString, "Unrecognized instruction");
+				}
 			}
 		}
 		else if(_opCode == OP_FUNC17){

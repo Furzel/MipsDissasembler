@@ -1,0 +1,89 @@
+mfhi $ra
+mflo $ra
+clz $ra $ra
+clo $ra $ra
+movz $a3 $ra $t7
+movn $a3 $ra $t7
+add $a3 $ra $t7
+addu $a3 $ra $t7
+sub $a3 $ra $t7
+subu $a3 $ra $t7
+and $a3 $ra $t7
+or $a3 $ra $t7
+xor $a3 $ra $t7
+nor $a3 $ra $t7
+slt $a3 $ra $t7
+sltu $a3 $ra $t7
+mul $a3 $ra $t7
+sll $a3 $t7 1
+srl $a3 $t7 1
+sra $a3 $t7 1
+sllv $a3 $t7 $ra
+srlv $a3 $t7 $ra
+srav $a3 $t7 $ra
+jr $ra
+mthi $ra
+mtlo $ra
+mtc0 $t7 $ra
+mtc1 $ra $f15
+mfc1 $ra $f15
+mfc0 $ra $t7
+bc1t 7 0
+bc1f 7 0
+eret
+syscall
+break 0x3
+lb $t0 42($t5)
+lh $t2 64($t1)
+lwl $t3 128($t4)
+lw $t6 256($t7)
+lbu $zero 512($at)
+lhu $v0 1024($v1)
+lwr $a0 2048($a1)
+sb $a2 1024($a3)
+sh $s0 512($s1)
+swl $s2 256($s3)
+sw $s4 128($s5)
+swr $s6 64($s7)
+ll $t8 32($t9)
+sc $k0 16($k1)
+lui $gp 8
+addi $sp $fp 4
+slti $ra $t0 2
+sltiu $t1 $t0 1
+andi $t1 $t0 42
+ori $t1 $t0 42
+xori $t1 $t0 42
+j 0x4242
+jal 0xabcd
+nop
+tgei 
+tgeiu 
+tlti
+tltiu
+teqi
+tnei
+bltz
+bgez
+bltzal
+bgezal
+blez
+bgtz
+jlar
+mult
+multu
+div
+divu
+tge
+tgeu
+tlt
+tltu
+teq
+tne
+madd
+maddu
+msub
+msubu
+addiu
+beq
+bne
