@@ -1,0 +1,14 @@
+\subsection*{NOP format}
+
+	The \verb?nop? instruction is treated as a special instruction. \verb?nop? has the following structure : 
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	0 (6 bits) & 0 (5 bits) & 0 (5 bits) & 0 (5 bits) & 0 (5 bits) & 0 (6 bits) \\ 
+	\hline 
+	\end{tabular} 
+	\caption{nop representation}
+	\end{table}
+	
+	That representation is the same as \verb?sll? with rs, rd, rt and shamt set to 0. So to differentiate these two instructions, an attempt to match \verb?nop? representation is done before trying to match other representations.
