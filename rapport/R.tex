@@ -1,1 +1,50 @@
 \subsection*{R format}
+
+	There is two possibe decomposition for an instruction in R-format. The first one is the following : 
+	
+	\begin{table}[H]
+	\centering
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+	opcode (6 bits) & rs (5 bits) & rt (5 bits) & rd (5 bits) & shamft (5 bits) & func (6 bits) \\ 
+			\hline 
+		\end{tabular} 
+		\caption{R-format first representation}
+	\end{table}
+	
+	The second one is described below :
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline 
+	opcode (6 bits) & rs (5 bits) & rt (5 bits) & 0 (10 bits) & func (6 bits) \\ 
+			\hline 
+		\end{tabular} 
+		\caption{R-format second representation}
+	\end{table}
+	
+	The second representation corresponds to mnemonic representations which only use registers \textit{rs} and \textit{rt}. From mnemonic representations following recurrent display formats can be extracted :
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+	\hline 
+	function\_name & rd \\ 
+	\hline 
+	function\_name & rd rs \\ 
+	\hline 
+	function\_name & rd rs rt \\ 
+	\hline 
+	function\_name & rd rt imm \\ 
+	\hline 
+	function\_name & rd rt rs \\ 
+	\hline 
+	function\_name & rs \\ 
+	\hline 
+	function\_name & rs rd \\ 
+	\hline 
+	\end{tabular}
+	\caption{Reccurent display formats}
+	\end{table}
+	
+	To determined a mnemonic representation from hexadecimal or decimal value, two fields are important : the \textit{opcode} field and the \textit{function} field. For R-format instruction the \textit{opcode} field can take two values : 0 or 28 (in decimal). Then \textit{function} field is used to get the corresponding mnemonic representation.
