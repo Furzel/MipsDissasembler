@@ -6,16 +6,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
+import java.util.Set;
 
 
 public final class InstructionReader {
 	
 	private static final String FILE_NAME = "data/all_hex.txt";
 	//private static final String FILE_NAME = "data/paul_hex.txt";
-	
-	public static final ArrayList<String> readFile(String filename) {
-		ArrayList<String> stringList = new ArrayList<String>();
+	public static final ArrayList<SimpleEntry<String, String>> readFile(String filename) {
+		ArrayList<SimpleEntry<String, String>> stringList = new ArrayList<SimpleEntry<String, String>>();
 		try {
 			FileInputStream input = new FileInputStream(filename);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new DataInputStream(input)));
@@ -39,7 +40,8 @@ public final class InstructionReader {
 					}
 				}
 				assert(binaryString.length() == 32);
-				stringList.add(binaryString);
+				SimpleEntry<String, String> entry = new SimpleEntry<String, String>(binaryString, line);
+				stringList.add(entry);
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
