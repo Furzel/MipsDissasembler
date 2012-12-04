@@ -8,13 +8,16 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
-import java.util.Set;
 
 
 public final class InstructionReader {
 	
-	private static final String FILE_NAME = "data/all_hex.txt";
-	//private static final String FILE_NAME = "data/paul_hex.txt";
+	
+	/**
+	 * Parse the input file
+	 * @param filename path to the input file
+	 * @return An tuple array containing strings in file and their binary representation 
+	 */
 	public static final ArrayList<SimpleEntry<String, String>> readFile(String filename) {
 		ArrayList<SimpleEntry<String, String>> stringList = new ArrayList<SimpleEntry<String, String>>();
 		try {
@@ -45,7 +48,7 @@ public final class InstructionReader {
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("Unable to find or open file : " + FILE_NAME + "\nclosing");
+			System.out.println("Unable to find or open file : " + filename + "\nclosing");
 			e.printStackTrace();
 			System.exit(0);
 		} catch (IOException e) {

@@ -12,6 +12,10 @@ public abstract class ImmediateInstruction extends Instruction {
 	protected String _imm;
 	
 	
+	/**
+	 * Construct an Immediate instruction (I-format)
+	 * @param binaryString
+	 */
 	public ImmediateInstruction(String binaryString) {
 		super(binaryString);
 		_format = "I";

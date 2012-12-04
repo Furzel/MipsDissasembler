@@ -13,6 +13,10 @@ public abstract class RegisterInstruction extends Instruction {
 	protected String _rt;
 	protected String _functionCode;
 	
+	/**
+	 * Construct a register instruction (R format)
+	 * @param binaryString
+	 */
 	public RegisterInstruction(String binaryString) {
 		super(binaryString);
 		_format = "R";

@@ -11,6 +11,10 @@ public abstract class EretInstruction extends Instruction {
 	protected String _flag;
 	protected String _instruction;
 	
+	/**
+	 * Construct an eret instruction (E-format)
+	 * @param binaryString
+	 */
 	public EretInstruction(String binaryString) {
 		super(binaryString);
 		_format = "E";

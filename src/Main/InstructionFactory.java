@@ -35,6 +35,11 @@ public class InstructionFactory {
 	private static int _funcCode;
 	private static int _rtCode;
 
+	/**
+	 * Create an instruction from a binary string
+	 * @param binaryString representation of the instruction in binary string 
+	 * @return
+	 */
 	public static final Instruction createInstruction(String binaryString) {
 		Instruction ins = null; 
 		_opCode = Integer.valueOf(binaryString.substring(0, 6), 2);

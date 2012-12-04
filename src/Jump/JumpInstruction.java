@@ -10,6 +10,10 @@ public abstract class JumpInstruction extends Instruction {
 
 	protected String _target;
 	
+	/**
+	 * Construct a Jump instruction (J-format)
+	 * @param binaryString
+	 */
 	public JumpInstruction(String binaryString) {
 		super(binaryString);
 		_format = "J";

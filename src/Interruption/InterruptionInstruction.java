@@ -10,6 +10,10 @@ public abstract class InterruptionInstruction extends Instruction {
 	protected String _functionCode;
 	protected String _code;
 	
+	/**
+	 * Construct an interruption instruction (IRQ-format)
+	 * @param binaryString
+	 */
 	public InterruptionInstruction(String binaryString) {
 		super(binaryString);
 		_format = "IRQ";
