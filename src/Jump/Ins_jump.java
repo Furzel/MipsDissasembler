@@ -1,5 +1,7 @@
 package Jump;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 
 public class Ins_jump extends JumpInstruction{
@@ -13,9 +15,9 @@ public class Ins_jump extends JumpInstruction{
 	}
 
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, OP_CODE, Integer.valueOf(_opCode, 2));
-		System.out.println(_functionName + " 0x" + _target);
+		output.write(_functionName + " 0x" + _target);
 	}
 
 	

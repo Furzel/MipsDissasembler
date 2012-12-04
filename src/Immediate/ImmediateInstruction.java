@@ -1,4 +1,7 @@
 package Immediate;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 import Main.Instruction;
 
 
@@ -15,21 +18,21 @@ public abstract class ImmediateInstruction extends Instruction {
 	}
 
 	@Override
-	public void printDecomposedDecimal() {
+	public void printDecomposedDecimal(BufferedWriter output) throws IOException {
 		int opCode = Integer.valueOf(getOpCode(), 2);
 		int rs = Integer.valueOf(getRs(), 2);
 		int rt = Integer.valueOf(getRt(), 2);
 		int imm = Integer.valueOf(getImm(), 2);
-		System.out.println(opCode + " " + rs + " " + rt + " " + imm);
+		output.write(opCode + " " + rs + " " + rt + " " + imm);
 	}
 
 	@Override
-	public void printDecomposedHexa() {
+	public void printDecomposedHexa(BufferedWriter output) throws IOException {
 		String opCode = "0x" + Integer.toHexString(Integer.valueOf(getOpCode(), 2));
 		String rs = "0x" + Integer.toHexString(Integer.valueOf(getRs(), 2));
 		String rt = "0x" + Integer.toHexString(Integer.valueOf(getRt(), 2));
 		String imm = "0x" + Integer.toHexString(Integer.valueOf(getImm(), 2));
-		System.out.println(opCode + " " + rs + " " + rt + " " + imm);
+		output.write(opCode + " " + rs + " " + rt + " " + imm);
 	}
 	
 	protected String getImm() {

@@ -1,5 +1,8 @@
 package Coprocessor;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 import Main.Instruction;
 
 public abstract class EretInstruction extends Instruction {
@@ -17,21 +20,21 @@ public abstract class EretInstruction extends Instruction {
 	}
 
 	@Override
-	public void printDecomposedDecimal() {
+	public void printDecomposedDecimal(BufferedWriter output) throws IOException {
 		int opCode = Integer.valueOf(getOpCode(), 2);
 		int functionCode = Integer.valueOf(_functionCode, 2);
 		int flag = Integer.valueOf(_flag, 2);
 		int instruction = Integer.valueOf(_instruction, 2);
-		System.out.println(opCode + " " + flag + " " + instruction + " " + functionCode);
+		output.write(opCode + " " + flag + " " + instruction + " " + functionCode);
 	}
 
 	@Override
-	public void printDecomposedHexa() {
+	public void printDecomposedHexa(BufferedWriter output) throws IOException {
 		String opCode = "0x" + Integer.toHexString(Integer.valueOf(getOpCode(), 2));
 		String functionCode = "0x" +  Integer.toHexString(Integer.valueOf(_functionCode, 2));
 		String flag = "0x" + Integer.toHexString(Integer.valueOf(_flag, 2));
 		String instruction = "0x" +  Integer.toHexString(Integer.valueOf(_instruction, 2));
-		System.out.println(opCode + " " + flag + " " + instruction + " " + functionCode);
+		output.write(opCode + " " + flag + " " + instruction + " " + functionCode);
 	}
 
 }

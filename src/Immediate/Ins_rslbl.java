@@ -1,5 +1,8 @@
 package Immediate;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Ins_rslbl extends ImmediateInstruction {
 
 	public static final int[] RT_CODE = { 0, 1, 16, 17 };
@@ -14,14 +17,14 @@ public class Ins_rslbl extends ImmediateInstruction {
 	}
 
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		if (Integer.valueOf(_opCode, 2) == 1) {
 			_functionName = getNameFromCode(RT_FUNCTION_NAME, RT_CODE, Integer.valueOf(getRt(), 2));
 		} 
 		else {
 			_functionName = getNameFromCode(OP_FUNCTION_NAME, OP_CODE, Integer.valueOf(_opCode, 2));
 		}
-		System.out.println(_functionName + " " + _rs + " 0x" + _imm);
+		output.write(_functionName + " " + _rs + " 0x" + _imm);
 	}
 
 }

@@ -1,5 +1,8 @@
 package Register;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Ins_rdrs extends RegisterInstruction {
 
 	public static final int[] FUNCTION_CODE = { 32, 33 };
@@ -12,9 +15,9 @@ public class Ins_rdrs extends RegisterInstruction {
 	}
 
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName =  getNameFromCode(FUNCTION_NAME, FUNCTION_CODE, Integer.valueOf(_functionCode, 2));
-		System.out.println(_functionName + " " + _rd + " " + _rs);
+		output.write(_functionName + " " + _rd + " " + _rs);
 	}
 
 }

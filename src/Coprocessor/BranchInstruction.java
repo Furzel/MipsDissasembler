@@ -1,5 +1,8 @@
 package Coprocessor;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 import Main.Instruction;
 
 
@@ -20,24 +23,24 @@ public abstract class BranchInstruction extends Instruction {
 	}
 	
 	@Override
-	public void printDecomposedDecimal() {
+	public void printDecomposedDecimal(BufferedWriter output) throws IOException {
 		int opCode = Integer.valueOf(getOpCode(), 2);
 		int formatCode = Integer.valueOf(_formatCode, 2);
 		int cc = Integer.valueOf(_cc, 2);
 		int flag = Integer.valueOf(_flag, 2);
 		int offset = Integer.valueOf(_offset, 2);
-		System.out.println(opCode + " " + formatCode + " " + cc + " " + flag + " " + offset);
+		output.write(opCode + " " + formatCode + " " + cc + " " + flag + " " + offset);
 
 	}
 
 	@Override
-	public void printDecomposedHexa() {
+	public void printDecomposedHexa(BufferedWriter output) throws IOException {
 		String opCode = "0x" + Integer.toHexString(Integer.valueOf(getOpCode(), 2));
 		String formatCode = "0x" + Integer.toHexString(Integer.valueOf(_formatCode, 2));
 		String cc = "0x" + Integer.toHexString(Integer.valueOf(_cc, 2));
 		String flag = "0x" + Integer.toHexString(Integer.valueOf(_flag, 2));
 		String offset = "0x" + Integer.toHexString(Integer.valueOf(_offset, 2));
-		System.out.println(opCode + " " + formatCode + " " + cc + " " + flag + " " + offset);
+		output.write(opCode + " " + formatCode + " " + cc + " " + flag + " " + offset);
 	}
 
 }

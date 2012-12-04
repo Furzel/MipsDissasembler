@@ -1,5 +1,8 @@
 package Coprocessor;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Ins_rtfs extends CoprocessorInstruction {
 
 	public static final int[] FUNCTION_FORMATCODE = { 0, 4 };
@@ -12,9 +15,9 @@ public class Ins_rtfs extends CoprocessorInstruction {
 	}
 	
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_FORMATCODE, Integer.valueOf(_formatCode, 2));
-		System.out.println(_functionName + " " + _rt + " " + _rdfs);
+		output.write(_functionName + " " + _rt + " " + _rdfs);
 	}
 
 }
