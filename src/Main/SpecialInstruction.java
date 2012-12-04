@@ -1,5 +1,7 @@
 package Main;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 
 public class SpecialInstruction extends Instruction {
@@ -16,18 +18,18 @@ public class SpecialInstruction extends Instruction {
 	}
 
 	@Override
-	public void printDecomposedDecimal() {
-		System.out.println(BigInteger.valueOf(Long.valueOf(_instructionString, 2)));
+	public void printDecomposedDecimal(BufferedWriter output) throws IOException {
+		output.write(BigInteger.valueOf(Long.valueOf(_instructionString, 2)).toString());
 	}
 
 	@Override
-	public void printDecomposedHexa() {
-		System.out.println("0x" + BigInteger.valueOf(Long.valueOf(_instructionString, 2)).toString(16));
+	public void printDecomposedHexa(BufferedWriter output) throws IOException {
+		output.write("0x" + BigInteger.valueOf(Long.valueOf(_instructionString, 2)).toString(16));
 	}
 
 	@Override
-	public void printMnemonic() {
-		System.out.println(_mnemonic);
+	public void printMnemonic(BufferedWriter output) throws IOException {
+		output.write(_mnemonic);
 	}
 
 }

@@ -1,5 +1,8 @@
 package Immediate;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Ins_rsimm extends ImmediateInstruction {
 
 	public static final int[] RT_CODE = { 8, 9, 10, 11, 12, 14 };
@@ -12,9 +15,9 @@ public class Ins_rsimm extends ImmediateInstruction {
 	}
 
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, RT_CODE, Integer.valueOf(getRt(), 2));
-		System.out.println(_functionName + " " + _rs + " " + _imm);
+		output.write(_functionName + " " + _rs + " " + _imm);
 	}
 
 

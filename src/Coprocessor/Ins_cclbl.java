@@ -1,5 +1,8 @@
 package Coprocessor;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Ins_cclbl extends BranchInstruction {
 
 	public static int[] FORMAT_CODE = {8};
@@ -11,9 +14,9 @@ public class Ins_cclbl extends BranchInstruction {
 	}
 	
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, FLAG_CODE, Integer.valueOf(_flag, 2));
-		System.out.println(_functionName + " " + Integer.valueOf(_cc, 2) + " " + Integer.valueOf(_offset, 2));
+		output.write(_functionName + " " + Integer.valueOf(_cc, 2) + " " + Integer.valueOf(_offset, 2));
 	}
 
 }

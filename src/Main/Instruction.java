@@ -1,5 +1,7 @@
 package Main;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 
 public abstract class Instruction {
@@ -46,14 +48,19 @@ public abstract class Instruction {
 	public Instruction(String binaryString) {
 		_instructionString = binaryString;
 		_opCode = getOpCode();
+		_originalNumber = BigInteger.valueOf(Long.parseLong(_instructionString, 2));
 	}
 	
-	public abstract void printDecomposedDecimal();
-	public abstract void printDecomposedHexa();
-	public abstract void printMnemonic();
+	public abstract void printDecomposedDecimal(BufferedWriter output) throws IOException;
+	public abstract void printDecomposedHexa(BufferedWriter output) throws IOException;
+	public abstract void printMnemonic(BufferedWriter output) throws IOException;
 	
-	public void printFormat() {
-		System.out.println("Format : " + _format);
+	public void printValue(BufferedWriter output) throws IOException {
+		output.write(_originalNumber.toString());
+	}
+	
+	public void printFormat(BufferedWriter output) throws IOException {
+		output.write(_format);
 	}
 	
 	protected String binaryToReg(String binaryString) {

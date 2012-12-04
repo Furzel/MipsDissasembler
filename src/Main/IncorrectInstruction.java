@@ -1,5 +1,8 @@
 package Main;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class IncorrectInstruction extends Instruction {
 
 	private String _message;
@@ -10,18 +13,18 @@ public class IncorrectInstruction extends Instruction {
 	}
 
 	@Override
-	public void printDecomposedDecimal() {
-		System.out.println("Incorrect instruction : " + _message);
+	public void printDecomposedDecimal(BufferedWriter output) throws IOException {
+		output.write("Incorrect instruction : " + _message);
 	}
 
 	@Override
-	public void printDecomposedHexa() {
-		System.out.println("Incorrect instruction : " + _message);
+	public void printDecomposedHexa(BufferedWriter output) throws IOException {
+		output.write("Incorrect instruction : " + _message);
 	}
 
 	@Override
-	public void printMnemonic() {
-		System.out.println("Incorrect instruction : " + _message);
+	public void printMnemonic(BufferedWriter output) throws IOException {
+		output.write("Incorrect instruction : " + _message);
 	}
 
 	

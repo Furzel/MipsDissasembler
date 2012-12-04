@@ -1,5 +1,8 @@
 package Coprocessor;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Ins_rtrd_rdrt extends CoprocessorInstruction {
 
 	public static final int[] FUNCTION_FORMATCODE = { 0, 4 };
@@ -12,7 +15,7 @@ public class Ins_rtrd_rdrt extends CoprocessorInstruction {
 	}
 
 	@Override
-	public void printMnemonic() {
+	public void printMnemonic(BufferedWriter output) throws IOException {
 		String firstRegister, secondRegister;
 		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_FORMATCODE, Integer.valueOf(_formatCode, 2));
 		if(Integer.valueOf(_formatCode, 2).equals(0)){
@@ -22,7 +25,7 @@ public class Ins_rtrd_rdrt extends CoprocessorInstruction {
 			firstRegister = _rdfs;
 			secondRegister = _rt;
 		}
-		System.out.println(_functionName + " " + firstRegister + " " + secondRegister);
+		output.write(_functionName + " " + firstRegister + " " + secondRegister);
 	}
 
 }
