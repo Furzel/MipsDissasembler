@@ -8,6 +8,13 @@ import java.util.ArrayList;
 
 public class Dissasembler {
 
+	private static final String BEAUTIFUL_CSS = "<style type=\"text/css\">body{ padding:0; margin:0; width: 100%;}" +
+			"table{ width: 100%; margin:0; padding:0; border:none; border-spacing: 0;}" +
+			"tr:nth-child(even) {background: #CCCCCC; border:none;}"+
+			"tr:nth-child(odd) {background: #FFFFFF; border:none;}"+
+			"td{ margin:0; padding:0; text-align:center; border:none; padding: 8pt;}" +
+			"th{ border-bottom: 4px solid black; padding: 8pt;}"+
+			"</style>";
 	/**
 	 * @param args
 	 */
@@ -46,9 +53,9 @@ public class Dissasembler {
 			}
 		}
 	}
-
+	
 	private static void printHtmlHeader(BufferedWriter output) throws IOException {
-		output.write("<html>\n<body>\n<table>\n<tr>\n<th>Value</th><th>Format</th><th>Mnemonic</th><th>Decimal decomposition</th><th>Hexadecimal decomposition</th>\n</tr>\n");
+		output.write("<html>\n"+BEAUTIFUL_CSS+"<body>\n<table>\n<tr>\n<th>Value</th><th>Format</th><th>Mnemonic</th><th>Decimal decomposition</th><th>Hexadecimal decomposition</th>\n</tr>\n");
 	}
 
 	private static void printHtmlFooter(BufferedWriter output) throws IOException {
