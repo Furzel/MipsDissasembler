@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.AbstractMap.SimpleEntry;
 
 
 public class Dissasembler {
@@ -19,21 +20,23 @@ public class Dissasembler {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		if (args.length < 1) {
-			System.out.println("Usage : Dissasembler <File name>");
+		if (args.length < 2) {
+			System.out.println("Usage : Dissasembler <input file name> <output file name>");
+			System.out.println("Output is an html file");
 			System.exit(0);
 		}
 		else {
-			String fileName = args[0];
+			String inputFileName = args[0];
+			String outputFileName = args[1];
 			try {
-				FileWriter fw = new FileWriter("output.html");
+				FileWriter fw = new FileWriter(outputFileName);
 				BufferedWriter output = new BufferedWriter(fw);
-				ArrayList<String> stringList = InstructionReader.readFile(fileName);
+				ArrayList<SimpleEntry<String, String>> entryList = InstructionReader.readFile(inputFileName);
 				printHtmlHeader(output);
-				for (String s : stringList) {
-					Instruction ins = InstructionFactory.createInstruction(s);
+				for (SimpleEntry<String,String> entry : entryList) {
+					Instruction ins = InstructionFactory.createInstruction((String)entry.getKey());
 					output.write("<tr>\n<td>");
-					ins.printValue(output);
+					output.write((String)entry.getValue());
 					output.write("</td><td>");
 					ins.printFormat(output);
 					output.write("</td><td>");
