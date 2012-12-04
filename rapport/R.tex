@@ -27,21 +27,66 @@
 	
 	\begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|}
+	\begin{tabular}{|c|c|c|}
 	\hline 
-	function\_name & rd \\ 
+	 & \textbf{Fields to display} & \textbf{Operation code} and \textbf{Function code }\\ 
 	\hline 
-	function\_name & rd rs \\ 
+	function\_name & rd  & 
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 16, 18
+		\end{tabular}\\ 
 	\hline 
-	function\_name & rd rs rt \\ 
+	function\_name & rd rs &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		28	& 32, 33
+		\end{tabular}	
+	\\ 
 	\hline 
-	function\_name & rd rt imm \\ 
+	function\_name & rd rs rt &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 10, 11, 32, 33, 34, 35, 36, 37, 38, 39, 42, 43\\
+		28	& 2
+		\end{tabular}	
+	\\ 
 	\hline 
-	function\_name & rd rt rs \\ 
+	function\_name & rd rt imm &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 0, 2, 3
+		\end{tabular}	
+	\\ 
 	\hline 
-	function\_name & rs \\ 
+	function\_name & rd rt rs &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 4, 6, 7
+		\end{tabular}	
+	\\ 
 	\hline 
-	function\_name & rs rd \\ 
+	function\_name & rs &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 8, 17, 19
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rs rd &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 9
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rs rt &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 24, 25, 26, 27, 48, 49, 50, 51, 52, 54\\
+		28 	& 0, 1, 4, 5
+		\end{tabular}	
+	\\ 
 	\hline 
 	\end{tabular}
 	\caption{Reccurent display formats}

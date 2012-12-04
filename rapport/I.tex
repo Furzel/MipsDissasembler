@@ -14,21 +14,58 @@
 	From mnemonic representation, following recurrent formats can be extracted : 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|c|c|}
+		\begin{tabular}{|c|c|c|}
+		\hline
+		&\textbf{Fields to display} & \textbf{Operation code} and \textbf{rt value}\\
 		\hline 
-		function\_name & rs imm\\ 
+		function\_name & rs imm &
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			1	& 8, 9, 10, 11, 12, 14
+			\end{tabular}			
+		\\ 
 		\hline 
-		function\_name & rs label\\ 
+		function\_name & rs label &
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			1	& 0, 1, 16, 17\\
+			6, 7 	&\\
+			\end{tabular}			
+		\\ 
 		\hline 
-		function\_name & rs rt imm\\ 
+		function\_name & rs rt imm&
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			9	&\\
+			\end{tabular}			
+		\\ 
 		\hline 
-		function\_name & rs rt label\\ 
+		function\_name & rs rt label & 
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			5	&
+			\end{tabular}	\\ 
 		\hline 
-		function\_name & rt addr \\ 
+		function\_name & rt addr &
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 46, 48, 56 &
+			\end{tabular}			
+		\\ 
 		\hline 
-		function\_name & rt imm \\ 
+		function\_name & rt imm & 
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			8	& 
+			\end{tabular}	
+		\\ 
 		\hline 
-		function\_name & rt rs imm \\ 
+		function\_name & rt rs imm &
+			\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{rt value}\\
+			8, 10, 11, 12, 13, 14	&
+			\end{tabular}			
+		\\ 
 		\hline 
 		\end{tabular} 
 		\caption{Recurrent mnemonic format for instruction in I-format}
