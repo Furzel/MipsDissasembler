@@ -14,10 +14,10 @@ public final class InstructionReader {
 	private static final String FILE_NAME = "data/all_hex.txt";
 	//private static final String FILE_NAME = "data/paul_hex.txt";
 	
-	public static final ArrayList<String> readFile() {
+	public static final ArrayList<String> readFile(String filename) {
 		ArrayList<String> stringList = new ArrayList<String>();
 		try {
-			FileInputStream input = new FileInputStream(FILE_NAME);
+			FileInputStream input = new FileInputStream(filename);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new DataInputStream(input)));
 			String line;
 			while ((line = reader.readLine()) != null) {
