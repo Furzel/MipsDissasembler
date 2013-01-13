@@ -28,8 +28,8 @@ public abstract class JumpInstruction extends Instruction {
 
 	@Override
 	public void printDecomposedHexa(BufferedWriter output) throws IOException {
-		String opCode = "0x" + Integer.toHexString(Integer.valueOf(_instructionString.substring(0, 7), 2));
-		String target = "0x" + BigInteger.valueOf(Long.valueOf(_instructionString.substring(7, 32), 2)).toString(16);
+		String opCode = "0x" + Integer.toHexString(Integer.valueOf(_instructionString.substring(0, 6), 2));
+		String target = "0x" + BigInteger.valueOf(Long.valueOf(_instructionString.substring(6, 32), 2)).toString(16);
 		output.write(opCode + " " + target);
 	}
 

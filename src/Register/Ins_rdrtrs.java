@@ -18,7 +18,7 @@ public class Ins_rdrtrs extends RegisterInstruction {
 	@Override
 	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName =  getNameFromCode(FUNCTION_NAME, FUNCTION_CODE, Integer.valueOf(_functionCode, 2));
-		output.write(_functionName + " " + _rd + " " + _rt + " " + _rs);
+		output.write(_functionName + " " + _rd + ", " + _rt + ", " + _rs);
 	}
 
 }

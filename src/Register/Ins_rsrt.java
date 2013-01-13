@@ -24,7 +24,7 @@ public class Ins_rsrt extends RegisterInstruction {
 		}else{
 			_functionName = getNameFromCode(FUNCTION_NAME_OPCODE28, FUNCTION_CODE_OPCODE28, Integer.valueOf(_functionCode, 2));
 		}
-		output.write(_functionName + " " + _rs  + " " + _rt);
+		output.write(_functionName + " " + _rs  + ", " + _rt);
 	}
 
 	@Override

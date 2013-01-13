@@ -17,7 +17,7 @@ public class Ins_rtfs extends CoprocessorInstruction {
 	@Override
 	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_FORMATCODE, Integer.valueOf(_formatCode, 2));
-		output.write(_functionName + " " + _rt + " " + _rdfs);
+		output.write(_functionName + " " + _rt + ", " + _rdfs);
 	}
 
 }

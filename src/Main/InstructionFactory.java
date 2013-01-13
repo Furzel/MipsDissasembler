@@ -67,9 +67,12 @@ public class InstructionFactory {
 			else if(containsFuncCode(Ins_rsrt.FUNCTION_CODE_OPCODE0)){
 				ins = new Ins_rsrt(binaryString);
 			}
-			else if (containsFuncCode(Ins_rsrd.FUNCTION_CODE)) {
-				ins = new Ins_rsrd(binaryString);
+			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE_OPCODE0)) {
+				ins = new Ins_rdrs(binaryString);
 			}
+//			else if (containsFuncCode(Ins_rsrd.FUNCTION_CODE)) {
+//				ins = new Ins_rsrd(binaryString);
+//			}
 			else if (containsFuncCode(Ins_rdrtrs.FUNCTION_CODE)) {
 				ins = new Ins_rdrtrs(binaryString);
 			}			
@@ -125,7 +128,7 @@ public class InstructionFactory {
 			if (containsFuncCode(Ins_rsrt.FUNCTION_CODE_OPCODE28)) {
 				ins = new Ins_rsrt(binaryString);
 			}
-			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE)) {
+			else if (containsFuncCode(Ins_rdrs.FUNCTION_CODE_OPCODE28)) {
 				ins = new Ins_rdrs(binaryString);
 			}
 			else if(containsFuncCode(Ins_rdrsrt.FUNCTION_CODE_OPCODE28)){
@@ -153,9 +156,9 @@ public class InstructionFactory {
 		else if (containsOpCode(Ins_rtaddr.OP_CODE)) {
 			ins = new Ins_rtaddr(binaryString);
 		}
-		else if (containsOpCode(Ins_rsrtimm.OP_CODE)) {
-			ins = new Ins_rsrtimm(binaryString);
-		}
+//		else if (containsOpCode(Ins_rsrtimm.OP_CODE)) {
+//			ins = new Ins_rsrtimm(binaryString);
+//		}
 		else if (containsOpCode(Ins_rslbl.OP_CODE)) {
 			ins = new Ins_rslbl(binaryString);
 		}		

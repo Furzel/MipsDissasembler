@@ -16,7 +16,7 @@ public class Ins_cclbl extends BranchInstruction {
 	@Override
 	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, FLAG_CODE, Integer.valueOf(_flag, 2));
-		output.write(_functionName + " " + Integer.valueOf(_cc, 2) + " " + Integer.valueOf(_offset, 2));
+		output.write(_functionName + " " + Integer.valueOf(_cc, 2) + ", " + Integer.valueOf(_offset, 2));
 	}
 
 }
