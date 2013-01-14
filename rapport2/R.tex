@@ -1,0 +1,95 @@
+\subsubsection*{R format}
+
+	There is two possible decompositions for an instruction in R-format. The first one is the following : 
+	
+	\begin{table}[H]
+	\centering
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+	opcode (6 bits) & rs (5 bits) & rt (5 bits) & rd (5 bits) & shamt (5 bits) & function (6 bits) \\ 
+			\hline 
+		\end{tabular} 
+		\caption{R-format first representation}
+	\end{table}
+	
+	The second one is described below :
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline 
+	opcode (6 bits) & rs (5 bits) & rt (5 bits) & 0 (10 bits) & function (6 bits) \\ 
+			\hline 
+		\end{tabular} 
+		\caption{R-format second representation}
+	\end{table}
+	
+	The second representation corresponds to mnemonic representations which only use registers \textit{rs} and \textit{rt}. From mnemonic representations following recurrent display formats can be extracted :
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+	\hline 
+	 & \textbf{Fields to display} & \textbf{Operation code} and \textbf{Function code }\\ 
+	\hline 
+	function\_name & rd  & 
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 16, 18
+		\end{tabular}\\ 
+	\hline 
+	function\_name & rd rs &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		28	& 32, 33
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rd rs rt &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 10, 11, 32, 33, 34, 35, 36, 37, 38, 39, 42, 43\\
+		28	& 2
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rd rt imm &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 0, 2, 3
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rd rt rs &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 4, 6, 7
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rs &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 8, 17, 19
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rs rd &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 9
+		\end{tabular}	
+	\\ 
+	\hline 
+	function\_name & rs rt &
+		\begin{tabular}{p{2cm}p{4cm}} 
+			\textbf{Opcode} & \textbf{function\_code}\\
+		0	& 24, 25, 26, 27, 48, 49, 50, 51, 52, 54\\
+		28 	& 0, 1, 4, 5
+		\end{tabular}	
+	\\ 
+	\hline 
+	\end{tabular}
+	\caption{Reccurent display formats}
+	\end{table}
+	
+	To determine a mnemonic representation from hexadecimal or decimal value, two fields are important : the \textit{opcode} field and the \textit{function} field. For R-format instruction the \textit{opcode} field can take two values : 0 or 28 (in decimal). Then \textit{function} field is used to get the corresponding mnemonic representation.

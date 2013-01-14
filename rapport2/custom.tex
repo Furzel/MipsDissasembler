@@ -1,0 +1,10 @@
+\subsection{Custom formats}
+
+	Some instructions have a special format which does not match R,I or J. These instructions are the following : \verb?bc1t?, \verb?bc1f?, \verb?mtc0?, \verb?mtc1?, \verb?mfc0?, \verb?mfc1?, \verb?eret?, \verb?syscall?, \verb?break? and \verb?nop?.\\
+	
+	 Some of these operations involve the coprocessor, which are identified with C-format. For those which branch on the coprocessor, BC-format is used. Interruption as \verb?syscall? and \verb?break? are in IRQ-format. \verb?eret? and \verb?nop? have their own format, respectively E-format and NOP-format.
+\input{C}
+\input{BC}
+\input{IRQ}
+\input{E}
+\input{NOP}

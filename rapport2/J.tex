@@ -1,0 +1,28 @@
+\subsubsection*{J format}
+
+	Instruction in J-format have the following representation :
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			opcode (6 bits) & target (26 bits)\\
+			\hline
+		\end{tabular}
+		\caption{J-format representation}
+	\end{table}
+	
+	Mnemonic representation for that type of instruction is described below :
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			& \textbf{Fields to display} & \textbf{Operation code}\\
+			\hline
+			function\_name & target  & 2, 3\\
+			\hline
+		\end{tabular}
+		\caption{Mnemonic representation for J-format instructions}
+	\end{table}
+	
+	To determine the mnemonic representation from its hexadecimal or decimal value, the only important field is the \textit{opcode} field which can take one of the following value : 2, 3.

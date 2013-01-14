@@ -1,0 +1,14 @@
+\subsubsection*{IRQ format}
+
+	The IRQ-format has the following structure :
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}
+		\hline 
+		opcode (0) (6 bits) & code (20 bits) & function\_code ( 6 bits) \\ 
+		\hline 
+		\end{tabular} 
+		\caption{Description of IRQ-format}
+	\end{table}
+	
+	The mnemonic representation depends on the value of the \textit{function\_code} field, which take value : 12 or 13.

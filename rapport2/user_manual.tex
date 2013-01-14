@@ -1,0 +1,17 @@
+\section{User manual}
+
+\subsection{Running the program}
+
+Once building is done, the program can be run using the following command :
+\begin{verbatim}
+	java -cp bin/ Main.Dissasembler <Input file name> <output file name>
+\end{verbatim} 
+\verb?Input file name? is a path to a file where each line represent a MIPS instruction encoded in a decimal or hexadecimal value. The \verb?output file? is an HTML page and can be viewed using any internet browser. 
+
+\subsection{Understanding the output}
+
+The html page generated offers an array with 5 columns : 
+\begin{itemize}
+\item Value : The hexadecimal value given as input on this line. If the value was in decimal, it will be automatically converted. 
+\item Format : The MIPS format of the instruction, can be R, I or J  for the common MIPS instruction. Others possible values are C for coprecessor instructions, BC for copressor branch instructions, E for the eret instruction and IRQ for syscall and break.  
+
