@@ -25,7 +25,7 @@ public class Ins_rtrd_rdrt extends CoprocessorInstruction {
 			firstRegister = _rdfs;
 			secondRegister = _rt;
 		}
-		output.write(_functionName + " " + firstRegister + " " + secondRegister);
+		output.write(_functionName + " " + firstRegister + ", " + secondRegister);
 	}
 
 }

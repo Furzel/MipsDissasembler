@@ -20,7 +20,7 @@ public class Ins_rdrtimm extends RegisterInstruction {
 	@Override
 	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, FUNCTION_CODE, Integer.valueOf(_functionCode, 2));
-		output.write(_functionName + " " + _rd + " " + _rt + " " + Integer.valueOf(_shamt, 2));
+		output.write(_functionName + " " + _rd + ", " + _rt + ", " + Integer.valueOf(_shamt, 2));
 	}
 	
 	public String getShamt(){

@@ -46,6 +46,10 @@ public abstract class CoprocessorInstruction extends Instruction {
 	protected String _rdfs;
 	protected String _end;
 
+	/**
+	 * Construct a coprocessor instruction (C-format)
+	 * @param binaryString
+	 */
 	public CoprocessorInstruction(String binaryString){
 		super(binaryString);
 		_format = "C";

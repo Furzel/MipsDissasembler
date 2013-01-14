@@ -3,6 +3,7 @@ package Immediate;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+@Deprecated
 public class Ins_rsrtimm extends ImmediateInstruction {
 
 	public static final int[] OP_CODE = { 9 };
@@ -18,7 +19,7 @@ public class Ins_rsrtimm extends ImmediateInstruction {
 	@Override
 	public void printMnemonic(BufferedWriter output) throws IOException {
 		_functionName = getNameFromCode(FUNCTION_NAME, OP_CODE, Integer.valueOf(_opCode, 2));
-		output.write(_functionName + " " + _rs + " " + _rt + " " + _imm);
+		output.write(_functionName + " " + _rs + ", " + _rt + ", " + _imm);
 	}
 
 }

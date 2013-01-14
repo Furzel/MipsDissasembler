@@ -13,6 +13,10 @@ public abstract class BranchInstruction extends Instruction {
 	protected String _flag;
 	protected String _offset;
 	
+	/**
+	 * Construct a branch coprocessor instruction (BC-format)
+	 * @param binaryString
+	 */
 	public BranchInstruction(String binaryString) {
 		super(binaryString);
 		_format = "BC";

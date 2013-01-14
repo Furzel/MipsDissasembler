@@ -10,6 +10,10 @@ public class SpecialInstruction extends Instruction {
 	
 	protected String _mnemonic;
 	
+	/**
+	 * Construct a special instruction
+	 * @param binaryString
+	 */
 	public SpecialInstruction(String binaryString) {
 		super(binaryString);
 		if (binaryString.equals(OP_NOP)) {

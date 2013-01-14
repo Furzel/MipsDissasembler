@@ -3,6 +3,8 @@ package Immediate;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+import tools.Tools;
+
 public class Ins_rslbl extends ImmediateInstruction {
 
 	public static final int[] RT_CODE = { 0, 1, 16, 17 };
@@ -13,7 +15,7 @@ public class Ins_rslbl extends ImmediateInstruction {
 	public Ins_rslbl(String binaryString) {
 		super(binaryString);
 		_rs = binaryToReg(getRs());
-		_imm = Integer.toString(Integer.valueOf(getImm(), 2), 16);
+		_imm = Integer.toString(Tools.getIntegerSignedValue(getImm(), 16));
 	}
 
 	@Override
@@ -24,7 +26,7 @@ public class Ins_rslbl extends ImmediateInstruction {
 		else {
 			_functionName = getNameFromCode(OP_FUNCTION_NAME, OP_CODE, Integer.valueOf(_opCode, 2));
 		}
-		output.write(_functionName + " " + _rs + " 0x" + _imm);
+		output.write(_functionName + " " + _rs + ", " + _imm);
 	}
 
 }
